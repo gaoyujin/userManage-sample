@@ -9,6 +9,7 @@ import { ReportMiddleware } from './middleware/report.middleware';
 import * as sequelize from '@midwayjs/sequelize';
 import * as swagger from '@midwayjs/swagger';
 import * as jwt from '@midwayjs/jwt';
+import { JwtMiddleware } from './middleware/jwt';
 
 @Configuration({
   imports: [
@@ -30,7 +31,7 @@ export class MainConfiguration {
 
   async onReady() {
     // add middleware
-    this.app.useMiddleware([ReportMiddleware]);
+    this.app.useMiddleware([ReportMiddleware, JwtMiddleware]);
     // add filter
     // this.app.useFilter([NotFoundFilter, DefaultErrorFilter]);
   }

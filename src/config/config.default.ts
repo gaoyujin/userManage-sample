@@ -17,12 +17,7 @@ export default (): MidwayConfig => {
     expiresIn: 1000 * 60 * 60 * 24,
   };
 
-  config.jwtWhitelist = [
-    '/swagger-ui',
-    '/api/admin/login',
-    '/api',
-    '/api/user',
-  ];
+  config.jwtWhitelist = ['/swagger-ui', '/admin/login'];
 
   config.sequelize = {
     dataSource: {
